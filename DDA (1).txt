@@ -1,0 +1,42 @@
+#include<conio.h>
+#include<iostream.h>
+#include<graphics.h>
+#include<math.h>
+#include<dos.h>
+
+void main()
+{
+float x,y,deltax,deltay;
+int x1,y1,x2,y2,i,len;
+int gd = DETECT, gm;
+initgraph(&gd,&gm,NULL);
+cout<<“Enter the Co-ordinates of starting point of line: “;
+cin>>x1>>y1;
+cout<<“Enter the Co-ordinates of end point of line “;
+cin>>x2>>y2;
+deltax = abs(x2-x1);
+deltay = abs(y2-y1);
+if(deltax>=deltay)
+{
+len = deltax;
+}
+else
+{
+len = deltay;
+}
+deltax = deltax/len;
+deltay = deltay/len;
+x=x1;
+y=y1;
+i=1;
+while(i<=len)
+{
+putpixel(x,y,WHITE);
+x = x + deltax;
+y = y + deltay;
+i++;
+delay(20);
+}
+getch();
+closegraph();
+}
